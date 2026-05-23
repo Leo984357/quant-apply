@@ -58,6 +58,16 @@ def search(queries, city="深圳", limit=50):
                 break
     return results[:limit]
 
+def greet_single(security_id, job_id, message=""):
+    cmd = [BOSSCLI, "greet", security_id, job_id]
+    if message:
+        cmd += ["--message", message]
+    r = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+    if r.returncode == 0:
+        data = json.loads(r.stdout)
+        return data.get("ok", False)
+    return False
+
 def greet_batch(query, city="深圳", message="", count=5, dry_run=False):
     cmd = [BOSSCLI, "batch-greet", query, "--city", city, "--count", str(count)]
     if message:

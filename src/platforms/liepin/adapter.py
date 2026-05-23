@@ -1,4 +1,4 @@
-import subprocess, sys, json, time
+import subprocess, sys, json, time, os
 from pathlib import Path
 from src.core.database import log
 
@@ -10,9 +10,11 @@ CLI_ARGS = ["-p", "--page", "--keyword", "--city", "--salary"]
 
 def login():
     log("liepin", "login_start")
+    env = os.environ.copy()
+    env["PYTHONPATH"] = str(ROOT) + ":" + env.get("PYTHONPATH", "")
     r = subprocess.run(
         [sys.executable, str(BASE / "liepin_cookie_harvester.py")],
-        cwd=BASE, timeout=180)
+        cwd=BASE, env=env, timeout=300)
     ok = r.returncode == 0 and COOKIE.exists()
     log("liepin", "login_ok" if ok else "login_fail")
     return ok

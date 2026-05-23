@@ -209,7 +209,7 @@ def stats():
     """Show application statistics."""
     s = get_stats()
     total = sum(s.values())
-    print(f"\n📊 Total applications tracked: {total}")
+    print(f"\nTotal applications tracked: {total}")
     for status, count in sorted(s.items()):
         print(f"  {status}: {count}")
     log("cli", "stats_viewed")
