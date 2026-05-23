@@ -1,0 +1,24 @@
+# Data
+data/
+*.db
+
+# Auth tokens
+*.token
+**/token.json
+
+# Secrets
+**/.env
+**/credentials*
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# OS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/

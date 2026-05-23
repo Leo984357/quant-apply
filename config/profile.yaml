@@ -1,0 +1,20 @@
+# Personal Profile
+
+name: "Shuoren Li"
+name_cn: "李硕仁"
+email: "leo2974656036@foxmail.com"
+phone: ""
+location: "Shenzhen/Guangzhou"
+university: "Guangdong University of Foreign Studies"
+major: "Financial Engineering"
+degree: "B.Eng"
+grad_year: 2026
+
+# URLs
+github: "https://github.com/Leo984357"
+homepage: "https://leo984357.github.io"
+
+# Resume files
+resume_pdf: "config/resume/resume.pdf"
+resume_md: "config/resume/resume.md"
+resume_cn_pdf: "config/resume/resume_cn.pdf"

@@ -1,0 +1,107 @@
+# Search Conditions — Quant/Finance Internships
+
+# Job titles to search (CN + EN)
+titles:
+  # Quant
+  - "量化研究"
+  - "量化开发"
+  - "量化交易"
+  - "金融工程"
+  - "Quantitative Research"
+  - "Quantitative Analyst"
+  - "Quantitative Developer"
+  - "量化实习生"
+  - "策略研究"
+  - "资产定价"
+  # Fintech / Data
+  - "金融科技"
+  - "数据分析"
+  - "数据开发"
+  - "Python开发"
+  - "C++开发"
+  - "后端开发"
+  - "软件工程师"
+  - "软件开发"
+  - "数据挖掘"
+  - "人工智能"
+  - "机器学习"
+  - "风控模型"
+  - "金融IT"
+  - "投资分析"
+  - "行业研究"
+
+# Locations
+locations:
+  - "深圳"
+  - "广州"
+  - "上海"
+  - "北京"
+
+# Salary filter (CNY/month)
+salary_min: 3000
+salary_max: 15000
+
+# Keywords that must match at least one (OR logic — broad scope)
+must_keywords: []  # empty = accept all jobs matching title
+
+# Keywords that disqualify (OR logic — any match = skip)
+blocklist_keywords:
+  - "销售"
+  - "管培"
+  - "客服"
+  - "运营"
+  - "外包"
+  - "实习不限"
+  - "Java"
+  - "前端"
+  - "测试"
+  - "产品经理"
+  - "UI设计"
+  - "IOS"
+  - "Android"
+  - "PHP"
+  - ".NET"
+  - "Ruby"
+
+# Target companies (prioritize these)
+target_companies:
+  # 券商/基金
+  - "广发证券"
+  - "招商证券"
+  - "国信证券"
+  - "平安证券"
+  - "长城证券"
+  - "万联证券"
+  - "华泰证券"
+  - "中信证券"
+  - "南方基金"
+  - "博时基金"
+  # 中小量化
+  - "蒙玺投资"
+  - "希格斯投资"
+  - "量游资产"
+  - "念空科技"
+  - "白鹭资管"
+  # Fintech
+  - "恒生电子"
+  - "同花顺"
+  - "Wind"
+  - "东方财富"
+  - "金证股份"
+  - "顶点软件"
+  - "长亮科技"
+  - "润和软件"
+  - "中科金财"
+  - "信雅达"
+  - "宇信科技"
+  - "神州信息"
+  # 咨询/四大
+  - "PwC"
+  - "Deloitte"
+  - "EY"
+  - "KPMG"
+
+# Filters
+hr_active_days: 7        # Skip HR inactive > 7 days
+max_applications_per_day: 80
+apply_mode: "review"     # "auto" | "review" | "dry-run"

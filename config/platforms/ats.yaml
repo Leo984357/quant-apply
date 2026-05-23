@@ -1,0 +1,28 @@
+# ATS Configuration (Greenhouse / Lever / Workday / Ashby)
+
+# Tool: AutoApply
+# Used for: 券商/基金/银行/Fintech 官网申请
+
+enabled: true
+
+# Platform filter
+ats_platforms:
+  - greenhouse
+  - lever
+  - workday
+  - ashby
+
+# Match score threshold (0-100)
+min_score: 60
+max_applications_per_day: 30
+
+# Application answers
+answers:
+  work_authorization: "Yes"
+  visa_sponsorship: "No"
+  require_visa: "No"
+  currently_student: "Yes"
+  graduation_date: "2026-06"
+  years_experience: "1-2"
+  salary_expectation: "8000"
+  languages: "Chinese (Native), English (Fluent)"

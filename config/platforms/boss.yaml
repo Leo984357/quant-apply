@@ -1,0 +1,24 @@
+# Boss直聘 Configuration
+
+# Tool: boss-agent-cli
+# Priority: PRIMARY — most jobs in quant/finance
+
+enabled: true
+cookie_source: "edge"     # chrome | edge | firefox | cdp
+apply_delay_min: 5
+apply_delay_max: 12
+daily_limit: 80
+skip_inactive_days: 7
+
+# Greeting template
+# Variables: $name, $title, $company, $school, $major
+greeting: |
+  您好，我是$school金融工程专业的李硕仁，研究方向为量化投资与资产定价。
+  曾获FinTech Diankuan Cup一等奖（Top 2%），独立开发HS300 LightGBM多因子策略（累计收益81.87%），
+  并有一篇AI暴露因子工作论文（第一作者）。
+  对贵公司的量化岗位非常感兴趣，希望能进一步沟通。
+
+# Welfare filters
+welfare_filter:
+  - "五险一金"
+  - "双休"

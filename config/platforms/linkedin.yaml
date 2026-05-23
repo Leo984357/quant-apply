@@ -1,0 +1,21 @@
+# LinkedIn Configuration
+
+# Tool: jobclaw
+# Used for: 外企/海外机会 + 网络拓展
+
+enabled: false
+daily_limit: 20
+min_match_score: 65
+skip_inactive_days: 14
+
+# Search locations (English)
+locations:
+  - "Shenzhen"
+  - "Shanghai"
+  - "Beijing"
+  - "Remote"
+
+# Auto-connect with recruiters
+auto_connect: false
+connect_message: |
+  Hi, I'm a Financial Engineering student at GDUFS with experience in quantitative research and ML-driven trading strategies. Would love to connect!
