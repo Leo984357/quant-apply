@@ -1,0 +1,27 @@
+--- a/boss_agent_cli/api/browser_client.py
++++ b/boss_agent_cli/api/browser_client.py
+@@ -199,7 +199,9 @@
+ 
+ 	def _start_headless(self) -> None:
+ 		"""Fallback: launch headless patchright Chromium."""
+-		self._browser = self._pw.chromium.launch(headless=True)
++		import os
++		launch_kwargs: dict[str, Any] = {"channel": "chrome", "headless": False}
++		self._browser = self._pw.chromium.launch(**launch_kwargs)
+ 		self._context = self._browser.new_context(
+ 			user_agent=self._user_agent,
+ 			viewport={"width": 1280, "height": 800},
+@@ -212,8 +214,11 @@
+ 			for name, value in self._cookies.items()
+ 		])
+ 		self._page = self._context.new_page()
+-		self._page.goto(HOME_URL, wait_until="domcontentloaded")
+-		self._page.wait_for_load_state("networkidle")
++		try:
++			self._page.goto(HOME_URL, wait_until="domcontentloaded")
++			self._page.wait_for_load_state("networkidle", timeout=5000)
++		except Exception:
++			pass  # logged-in homepage may keep polling, don't block on networkidle
+ 		self._started = True
+ 		self._is_cdp = False
+ 		self._log("[boss] CDP 不可用（提示：需以 --remote-debugging-port=9222 启动 Chrome），降级到 headless patchright")
