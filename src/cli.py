@@ -49,6 +49,8 @@ def setup():
 
     print("\n[✓] Ready. Next steps:")
     print("  python src/cli.py boss run --city 深圳 --dry-run")
+    print("  python src/cli.py liepin login")
+    print("  python src/cli.py liepin run --city 深圳 --dry-run")
 
 @cli.group()
 def boss():
@@ -127,6 +129,80 @@ def run(city, limit, dry_run, target_only):
                 update_status(f"https://zhipin.com/job/{jid}", "applied")
                 print(f"  ✓ {c.get('company')} - {c.get('title')}")
             break
+
+# ── 猎聘 ─────────────────────────────────────────────
+
+@cli.group()
+def liepin():
+    """猎聘网 operations (via Auto-JobHunter)."""
+    pass
+
+@liepin.command()
+def login():
+    """Login to 猎聘网 (QR code scan)."""
+    from src.platforms.liepin.adapter import login as lp_login
+    if lp_login():
+        print("[✓] 猎聘登录成功")
+    else:
+        print("[✗] 猎聘登录失败")
+
+@liepin.command()
+@click.option("--city", default="深圳")
+@click.option("--keyword", default="量化研究")
+@click.option("--dry-run", is_flag=True)
+def run(city, keyword, dry_run):
+    """Search 猎聘 and score jobs."""
+    from src.platforms.liepin.adapter import search
+    from src.core.matcher import score_job
+    from src.core.database import log_application
+    jobs = search(keyword, city)
+    print(f"  Found {len(jobs)} jobs")
+    for j in jobs:
+        title = j.get("job_title", j.get("title", ""))
+        company = j.get("company_name", j.get("company", ""))
+        s = score_job(title, company, j, {})
+        if s >= 50:
+            print(f"  [{s:2d}] {company} - {title}")
+            log_application("猎聘", company, title, j.get("job_link", ""), s)
+    print("\n[✓] Done")
+
+# ── 51job ────────────────────────────────────────────
+
+@cli.group()
+def job51():
+    """51job operations (via Auto-JobHunter)."""
+    pass
+
+@job51.command()
+def login():
+    """Login to 51job (QR code scan)."""
+    from src.platforms.job51.adapter import login as j51_login
+    if j51_login():
+        print("[✓] 51job登录成功")
+    else:
+        print("[✗] 51job登录失败")
+
+@job51.command()
+@click.option("--city", default="深圳")
+@click.option("--keyword", default="量化研究")
+@click.option("--dry-run", is_flag=True)
+def run(city, keyword, dry_run):
+    """Search 51job and score jobs."""
+    from src.platforms.job51.adapter import search
+    from src.core.matcher import score_job
+    from src.core.database import log_application
+    jobs = search(keyword, city)
+    print(f"  Found {len(jobs)} jobs")
+    for j in jobs:
+        title = j.get("job_title", j.get("title", ""))
+        company = j.get("company_name", j.get("company", ""))
+        s = score_job(title, company, j, {})
+        if s >= 50:
+            print(f"  [{s:2d}] {company} - {title}")
+            log_application("51job", company, title, j.get("job_link", ""), s)
+    print("\n[✓] Done")
+
+# ── Stats ────────────────────────────────────────────
 
 @cli.command()
 def stats():
