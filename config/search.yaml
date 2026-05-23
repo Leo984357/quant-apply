@@ -64,42 +64,52 @@ blocklist_keywords:
   - "Ruby"
 
 # Target companies (prioritize these)
-target_companies:
-  # 券商/基金
-  - "广发证券"
-  - "招商证券"
-  - "国信证券"
+# Tier 1: 能力匹配，值得冲
+target_reach:
+  - "广发证券"     # 广州本土，量化岗
+  - "招商证券"     # 深圳
+  - "国信证券"     # 深圳
+  - "恒生电子"     # Fintech 龙头
+  - "同花顺"       # Fintech
+  - "PwC"
+  - "Deloitte"
+  - "EY"
+  - "KPMG"
+
+# Tier 2: 背景匹配，把握较大
+target_match:
   - "平安证券"
-  - "长城证券"
-  - "万联证券"
-  - "华泰证券"
-  - "中信证券"
-  - "南方基金"
-  - "博时基金"
-  # 中小量化
+  - "长城证券"     # 深圳
+  - "万联证券"     # 广州
+  - "第一创业"     # 深圳
+  - "五矿证券"     # 深圳
+  - "中山证券"     # 深圳
+  - "东方财富"
+  - "Wind"         # 万得
+  - "金证股份"     # 深圳 Fintech
+  - "顶点软件"     # Fintech
+  - "长亮科技"     # Fintech
+  - "信雅达"       # Fintech
+
+# Tier 3: 强匹配（中小量化，看能力不看学历）
+target_strong:
   - "蒙玺投资"
   - "希格斯投资"
   - "量游资产"
   - "念空科技"
   - "白鹭资管"
-  # Fintech
-  - "恒生电子"
-  - "同花顺"
-  - "Wind"
-  - "东方财富"
-  - "金证股份"
-  - "顶点软件"
-  - "长亮科技"
-  - "润和软件"
-  - "中科金财"
-  - "信雅达"
-  - "宇信科技"
-  - "神州信息"
-  # 咨询/四大
-  - "PwC"
-  - "Deloitte"
-  - "EY"
-  - "KPMG"
+  - "绰瑞资产"
+  - "浮力量化"
+  - "仲阳天王星"
+  - "聚宽投资"
+  - "烯码量化科技"
+  - "海南盛丰私募基金"
+  - "巨量均衡基金"
+  - "宽德投资"
+  - "衍盛资产"
+  - "汇鸿汇升"
+
+target_companies: []  # legacy - see tiers above
 
 # Filters
 hr_active_days: 7        # Skip HR inactive > 7 days
