@@ -6,7 +6,7 @@
  		"""Fallback: launch headless patchright Chromium."""
 -		self._browser = self._pw.chromium.launch(headless=True)
 +		import os
-+		launch_kwargs: dict[str, Any] = {"channel": "chrome", "headless": False}
++		launch_kwargs: dict[str, Any] = {"channel": "chrome", "headless": True}
 +		self._browser = self._pw.chromium.launch(**launch_kwargs)
  		self._context = self._browser.new_context(
  			user_agent=self._user_agent,
